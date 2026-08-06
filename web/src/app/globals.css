@@ -1,0 +1,385 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans), "Geist", "Helvetica Neue", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-positive: var(--positive);
+  --color-warning: var(--warning);
+  --color-negative: var(--negative);
+  --color-uber-accent: var(--uber-accent);
+  /* Health badging system */
+  --color-health-safe: var(--health-safe);
+  --color-health-degraded: var(--health-degraded);
+  --color-health-unsafe: var(--health-unsafe);
+  /* Vehicle priority tiers */
+  --color-prio-critical: var(--prio-critical);
+  --color-prio-high: var(--prio-high);
+  --color-prio-medium: var(--prio-medium);
+  --color-prio-low: var(--prio-low);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: var(--radius);
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-3xl: 8px;
+  --radius-4xl: 8px;
+}
+
+:root {
+  /* Uber Base */
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f6f6;
+  --secondary-foreground: #000000;
+  --muted: #f6f6f6;
+  --muted-foreground: #545454;
+  --accent: #276ef1;
+  --accent-foreground: #ffffff;
+  --destructive: #e11900;
+  --border: #e2e2e2;
+  --input: #e2e2e2;
+  --ring: #276ef1;
+  --uber-accent: #276ef1;
+  --positive: #048848;
+  --warning: #ffc043;
+  --negative: #e11900;
+  /* Health badging — semantic status layer over the Uber Base neutrals */
+  --health-safe: #059669;
+  --health-degraded: #b45309;
+  --health-unsafe: #dc2626;
+  /* Vehicle priority tiers */
+  --prio-critical: #6d28d9;
+  --prio-high: #1d4ed8;
+  --prio-medium: #0e7490;
+  --prio-low: #475569;
+  --chart-1: #000000;
+  --chart-2: #545454;
+  --chart-3: #276ef1;
+  --chart-4: #048848;
+  --chart-5: #e11900;
+  --radius: 8px;
+  --sidebar: #f6f6f6;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #000000;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ffffff;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #e2e2e2;
+  --sidebar-ring: #276ef1;
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #276ef1;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+}
+
+.dark {
+  --background: #05070a;
+  --foreground: #ffffff;
+  --card: #0a0d12;
+  --card-foreground: #ffffff;
+  --popover: #0d1117;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #12161d;
+  --secondary-foreground: #ffffff;
+  --muted: #12161d;
+  --muted-foreground: #94a3b8;
+  --accent: #276ef1;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #1e252f;
+  --input: #1e252f;
+  --ring: #276ef1;
+  /* Dark Industrial: saturated status colors read correctly on near-black */
+  --health-safe: #10b981;
+  --health-degraded: #f59e0b;
+  --health-unsafe: #ef4444;
+  --prio-critical: #7c3aed;
+  --prio-high: #2563eb;
+  --prio-medium: #0891b2;
+  --prio-low: #64748b;
+  --positive: #10b981;
+  --warning: #f59e0b;
+  --negative: #ef4444;
+  --chart-1: #276ef1;
+  --chart-2: #94a3b8;
+  --chart-3: #10b981;
+  --chart-4: #f59e0b;
+  --chart-5: #ef4444;
+  --sidebar: #0a0d12;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #276ef1;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #12161d;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #1e252f;
+  --sidebar-ring: #276ef1;
+  --focus-ring: 0 0 0 2px #05070a, 0 0 0 4px #276ef1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  /* Numeric readouts are always tabular so values don't jitter while animating */
+  [data-numeric] {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Dark Industrial FX layer
+   Motion is transform/opacity only and every ambient loop is
+   disabled under prefers-reduced-motion (see the block at the end).
+   ───────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Glass tier containers — Screen 2 gating cards */
+  .glass-panel {
+    position: relative;
+    background:
+      linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--tone, var(--accent)) 12%, transparent) 0%,
+        color-mix(in srgb, var(--tone, var(--accent)) 3%, transparent) 45%,
+        transparent 100%
+      ),
+      var(--card);
+    border: 1px solid color-mix(in srgb, var(--tone, var(--border)) 34%, transparent);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--tone, var(--border)) 22%, transparent),
+      0 1px 2px rgb(0 0 0 / 0.4);
+    backdrop-filter: blur(6px);
+  }
+
+  .glass-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      120% 80% at 100% 0%,
+      color-mix(in srgb, var(--tone, var(--accent)) 16%, transparent),
+      transparent 60%
+    );
+  }
+
+  /* Crimson quarantine container */
+  .hazard-stripes::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+      135deg,
+      var(--health-unsafe) 0 8px,
+      transparent 8px 16px
+    );
+    opacity: 0.85;
+  }
+
+  .tone-glow {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--tone) 45%, transparent),
+      0 0 18px -4px color-mix(in srgb, var(--tone) 60%, transparent);
+  }
+
+  /* Blueprint backdrop for the matching / rack surfaces */
+  .grid-backdrop {
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: -1px -1px;
+  }
+
+  .vignette-top {
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+
+  /* Value-change flash used by KPI readouts */
+  .flash-in {
+    animation: flash-in 420ms ease-out both;
+  }
+
+  .pulse-hazard {
+    animation: pulse-hazard 1.6s ease-in-out infinite;
+  }
+
+  .pulse-soft {
+    animation: pulse-soft 2.4s ease-in-out infinite;
+  }
+
+  .sweep-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sweep-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--tone, var(--accent)) 28%, transparent),
+      transparent
+    );
+    animation: sweep 2.6s ease-in-out infinite;
+  }
+
+  .edge-flow {
+    stroke-dasharray: 5 7;
+    animation: edge-flow 900ms linear infinite;
+  }
+
+  .scan-line {
+    animation: scan-line 3.2s ease-in-out infinite;
+  }
+
+  .rise-in {
+    animation: rise-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+}
+
+@keyframes flash-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulse-hazard {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px var(--health-unsafe), 0 0 0 0 color-mix(in srgb, var(--health-unsafe) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 1px var(--health-unsafe), 0 0 14px 2px color-mix(in srgb, var(--health-unsafe) 45%, transparent);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  55%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes edge-flow {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+@keyframes scan-line {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(var(--scan-distance, 120px));
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-hazard,
+  .pulse-soft,
+  .sweep-sheen::after,
+  .edge-flow,
+  .scan-line,
+  .flash-in,
+  .rise-in {
+    animation: none !important;
+  }
+}

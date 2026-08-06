@@ -1,0 +1,54 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+*.log
+
+# Node / Next.js
+web/node_modules/
+web/.next/
+web/out/
+web/.turbo/
+web/*.tsbuildinfo
+web/.env*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local / secrets
+.env
+.env.*
+!.env.example
+*.pem
+credentials.json
+
+# Large / generated run artefacts (keep decks & key JSON if small — ignore heavy uploads)
+data/uploads/
+outputs/slides/
+outputs/rt/figures/
+*.pyc
+
+# Cursor / agent local
+.cursor/
+.claude/
+
+# Unrelated documents
+India-Agent-Playbook.pdf
+
+# Competition data supplied by Siemens Energy India — not ours to redistribute.
+# Place the two provided CSVs here to reproduce the published results.
+tests/data/
+
+# Generated run artefacts and decks (derived from the supplied datasets)
+outputs/
+
+# Copies of the organizer's Problem 1 datasets
+web/public/samples/problem1.*.csv
+web/scripts/check-problem1-headers.mjs
