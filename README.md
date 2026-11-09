@@ -1,11 +1,21 @@
 # SafeFit-R — Battery Health Assessment and Dynamic Allocation for Light EVs
 
-Solution to **Siemens Energy India · Problem Statement 2 Part 1**, ASME Brain
-Bolt (The Engineers Sprint), IMECE India 2026 regional round.
-
 Classify 200 battery packs, score their suitability, and allocate them to 50
 vehicle requests without ever dispatching an unsafe pack — then beat the fixed
 Highest-SoC-First baseline on evidence a judge can recompute.
+
+**Built for:** ASME Brain Bolt (The Engineers Sprint) · IMECE India 2026 regional round · Siemens Energy India, Problem Statement 2 Part 1
+
+**Stack:** Python (NumPy, pandas, SciPy `milp` on HiGHS, matplotlib) · Next.js 16 and React 19 dashboard
+
+**Quick start:** the test suite runs without the datasets; the data-dependent tests skip themselves.
+
+```bash
+python -m pip install -r requirements.txt
+python -m pytest tests/test_safefit.py -q
+```
+
+The full run and the dashboard are in [Run it](#run-it).
 
 ---
 
@@ -140,7 +150,7 @@ and run — there is no synthetic mode anywhere in the system.
 ```
 bss_dispatch/      solver — physics, safety gate, scoring, MILP allocation
   rt/              real-time market/degradation layer (beyond the brief's scope)
-tests/             acceptance suite + the supplied Problem 1 datasets
+tests/             acceptance suite (datasets not included, see Data)
 docs/              algorithm specification, competition build plan, method notes
 web/               Next.js judge dashboard and diagnostics lab
 outputs/           generated run artefacts and decks
@@ -171,3 +181,6 @@ Expected columns:
 
 Internal column names (`SoC`, `SoH`, `vehicle_id`, …) are accepted too; the
 loader maps the Problem 1 names onto them automatically.
+
+---
+Built by [Rhudhresh R](https://github.com/RHUDHRESH)
